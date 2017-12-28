@@ -1,0 +1,10 @@
+[wrap-file]
+directory=MUMPS_5.1.2
+
+source_url=http://mumps.enseeiht.fr/MUMPS_5.1.2.tar.gz
+source_filename=MUMPS_5.1.2.tar.gz
+source_hash=eb345cda145da9aea01b851d17e54e7eef08e16bfa148100ac1f7f046cd42ae9
+
+patch_url=file:///home/astukalov/meson_wrapdb/MUMPS-5.1.2-meson.tar.gz
+patch_filename=MUMPS-5.1.2-meson.tar.gz
+patch_hash=9bca834e36f948b114d4244608974fad300bbf07d05be49982c0a6864ffc65f7

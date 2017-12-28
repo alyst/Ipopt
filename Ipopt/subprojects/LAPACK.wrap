@@ -1,0 +1,10 @@
+[wrap-file]
+directory=lapack-3.8.0
+
+source_url=http://www.netlib.org/lapack/lapack-3.8.0.tar.gz
+source_filename=lapack-3.8.0.tar.gz
+source_hash=deb22cc4a6120bff72621155a9917f485f96ef8319ac074a7afbc68aab88bcf6
+
+patch_url=file:///home/astukalov/meson_wrapdb/lapack-3.8.0-meson.tar.gz
+patch_filename=lapack-3.8.0-meson.tar.gz
+patch_hash=0555a29d02847f2e764aa7a4cbf08a123a5fc05bb8f6792b35259f3d11fa38ab

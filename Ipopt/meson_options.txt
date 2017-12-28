@@ -1,0 +1,10 @@
+option('enable-inexact-solver', type: 'boolean', value: false,
+       description: 'enable inexact linear solver version EXPERIMENTAL!')
+option('enable-linear-solver-loader', type: 'boolean', value: true,
+       description: 'compile linear solver loader (default: yes, if F77 available, otherwise no)')
+option('with-ipopt-verbosity', type : 'combo', choices : ['0', '1', '2', '3', '4', '5'], value : '0',
+       description: 'specify the debug verbosity level for project Ipopt')
+option('with-ipopt-checklevel', type : 'combo', choices : ['0', '1', '2', '3', '4', '5'], value : '0',
+       description: 'specify the sanity check level for project Ipopt')
+option('with-wsmp', type: 'string', value: '',
+       description: 'specify WSMP library')

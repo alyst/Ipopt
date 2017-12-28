@@ -1,0 +1,235 @@
+/* src/Common/config.h.in.  Generated from configure.ac by autoheader.  */
+
+/* Define to 1 if the inexact linear solver option is included */
+#mesondefine BUILD_INEXACT
+
+/* Define to be the name of C-function for Inf check */
+#mesondefine COIN_C_FINITE
+
+/* Define to 1 if the ASL package is available */
+#mesondefine COIN_HAS_ASL
+
+/* If defined, the BLAS Library is available. */
+#mesondefine COIN_HAS_BLAS
+
+/* Define to 1 if the HSL package is available */
+#mesondefine COIN_HAS_HSL
+
+/* If defined, the LAPACK Library is available. */
+#mesondefine COIN_HAS_LAPACK
+
+/* Define to 1 if the Mumps package is available */
+#mesondefine COIN_HAS_MUMPS
+
+/* Define to the debug sanity check level (0 is no test) */
+#mesondefine COIN_IPOPT_CHECKLEVEL
+
+/* Define to the debug verbosity level (0 is no output) */
+#mesondefine COIN_IPOPT_VERBOSITY
+
+/* If Fortran-based libraries should be used */
+#mesondefine USE_FORTRAN_LIBS
+
+#ifdef USE_FORTRAN_LIBS
+/* Define to dummy `main' function (if any) required to link to the Fortran
+   libraries. */
+#mesondefine F77_DUMMY_MAIN
+
+/* Define to a macro mangling the given C identifier (in lower and upper
+   case), which must not contain underscores, for linking with Fortran. */
+#define F77_FUNC(name, NAME) @F77_FUNC_NAME@
+
+/* As F77_FUNC, but for C identifiers containing underscores. */
+#define F77_FUNC_(name_, NAME_) @F77_FUNC__NAME@
+
+/* Define if F77 and FC dummy `main' functions are identical. */
+#mesondefine FC_DUMMY_MAIN_EQ_F77
+
+/* Define to the C type corresponding to Fortran INTEGER */
+#mesondefine FORTRAN_INTEGER_TYPE
+
+#endif /* USE_FORTRAN_LIBS */
+
+/* Define to 1 if you have the <assert.h> header file. */
+#mesondefine HAVE_ASSERT_H
+
+/* Define to 1 if you have the <cassert> header file. */
+#mesondefine HAVE_CASSERT
+
+/* Define to 1 if you have the <cctype> header file. */
+#mesondefine HAVE_CCTYPE
+
+/* Define to 1 if you have the <cfloat> header file. */
+#mesondefine HAVE_CFLOAT
+
+/* Define to 1 if you have the <cieeefp> header file. */
+#mesondefine HAVE_CIEEEFP
+
+/* Define to 1 if you have the <cmath> header file. */
+#mesondefine HAVE_CMATH
+
+/* Define to 1 if you have the <cstdarg> header file. */
+#mesondefine HAVE_CSTDARG
+
+/* Define to 1 if you have the <cstddef> header file. */
+#mesondefine HAVE_CSTDDEF
+
+/* Define to 1 if you have the <cstdio> header file. */
+#mesondefine HAVE_CSTDIO
+
+/* Define to 1 if you have the <cstdlib> header file. */
+#mesondefine HAVE_CSTDLIB
+
+/* Define to 1 if you have the <cstring> header file. */
+#mesondefine HAVE_CSTRING
+
+/* Define to 1 if you have the <ctime> header file. */
+#mesondefine HAVE_CTIME
+
+/* Define to 1 if you have the <ctype.h> header file. */
+#mesondefine HAVE_CTYPE_H
+
+/* Define to 1 if you have the <dlfcn.h> header file. */
+#mesondefine HAVE_DLFCN_H
+
+/* Define to 1 if function drand48 is available */
+#mesondefine HAVE_DRAND48
+
+/* Define to 1 if you have the <float.h> header file. */
+#mesondefine HAVE_FLOAT_H
+
+/* Define to 1 if you have the <ieeefp.h> header file. */
+#mesondefine HAVE_IEEEFP_H
+
+/* Define to 1 if you have the <inttypes.h> header file. */
+#mesondefine HAVE_INTTYPES_H
+
+/* Define to 1 if the linear solver loader should be compiled to allow dynamic
+   loading of shared libraries with linear solvers */
+#mesondefine HAVE_LINEARSOLVERLOADER
+
+/* Define to 1 if you have the <math.h> header file. */
+#mesondefine HAVE_MATH_H
+
+/* Define to 1 if you have the <memory.h> header file. */
+#mesondefine HAVE_MEMORY_H
+
+/* Define to 1 if you have the `MPI_Initialized' function. */
+#mesondefine HAVE_MPI_INITIALIZED
+
+/* Define to 1 if Pardiso is available */
+#mesondefine HAVE_PARDISO
+
+/* Define to 1 if you are using Pardiso from MKL */
+#mesondefine HAVE_PARDISO_MKL
+
+/* Define to 1 if you are not using at least a 4.0 version of Pardiso */
+#mesondefine HAVE_PARDISO_OLDINTERFACE
+
+/* Define to 1 if you are using the parallel version of Pardiso */
+#mesondefine HAVE_PARDISO_PARALLEL
+
+/* Define to 1 if function rand is available */
+#mesondefine HAVE_RAND
+
+/* Define to 1 if you have the `snprintf' function. */
+#mesondefine HAVE_SNPRINTF
+
+/* Define to 1 if you have the <stdarg.h> header file. */
+#mesondefine HAVE_STDARG_H
+
+/* Define to 1 if you have the <stddef.h> header file. */
+#mesondefine HAVE_STDDEF_H
+
+/* Define to 1 if you have the <stdint.h> header file. */
+#mesondefine HAVE_STDINT_H
+
+/* Define to 1 if you have the <stdio.h> header file. */
+#mesondefine HAVE_STDIO_H
+
+/* Define to 1 if you have the <stdlib.h> header file. */
+#mesondefine HAVE_STDLIB_H
+
+/* Define to 1 if function std::rand is available */
+#mesondefine HAVE_STD__RAND
+
+/* Define to 1 if you have the <strings.h> header file. */
+#mesondefine HAVE_STRINGS_H
+
+/* Define to 1 if you have the <string.h> header file. */
+#mesondefine HAVE_STRING_H
+
+/* Define to 1 if you have the <sys/stat.h> header file. */
+#mesondefine HAVE_SYS_STAT_H
+
+/* Define to 1 if you have the <sys/types.h> header file. */
+#mesondefine HAVE_SYS_TYPES_H
+
+/* Define to 1 if you have the <time.h> header file. */
+#mesondefine HAVE_TIME_H
+
+/* Define to 1 if you have the <unistd.h> header file. */
+#mesondefine HAVE_UNISTD_H
+
+/* Define to 1 if va_copy is available */
+#mesondefine HAVE_VA_COPY
+
+/* Define to 1 if you have the `vsnprintf' function. */
+#mesondefine HAVE_VSNPRINTF
+
+/* Define to 1 if you have the <windows.h> header file. */
+#mesondefine HAVE_WINDOWS_H
+
+/* Define to 1 if WSMP is available */
+#mesondefine HAVE_WSMP
+
+/* Define to 1 if you have the `_snprintf' function. */
+#mesondefine HAVE__SNPRINTF
+
+/* Define to 1 if you have the `_vsnprintf' function. */
+#mesondefine HAVE__VSNPRINTF
+
+/* SVN revision number of project */
+#mesondefine IPOPT_SVN_REV
+
+/* Version number of project */
+#mesondefine IPOPT_VERSION
+
+/* Major Version number of project */
+#mesondefine IPOPT_VERSION_MAJOR
+
+/* Minor Version number of project */
+#mesondefine IPOPT_VERSION_MINOR
+
+/* Release Version number of project */
+#mesondefine IPOPT_VERSION_RELEASE
+
+/* Name of package */
+#mesondefine PACKAGE
+
+/* Define to the address where bug reports for this package should be sent. */
+#mesondefine PACKAGE_BUGREPORT
+
+/* Define to the full name of this package. */
+#mesondefine PACKAGE_NAME
+
+/* Define to the full name and version of this package. */
+#mesondefine PACKAGE_STRING
+
+/* Define to the one symbol short name of this package. */
+#mesondefine PACKAGE_TARNAME
+
+/* Define to the version of this package. */
+#mesondefine PACKAGE_VERSION
+
+/* Set to extension for shared libraries in quotes. */
+#mesondefine SHAREDLIBEXT
+
+/* The size of a `int *', as computed by sizeof. */
+#mesondefine SIZEOF_INT_P
+
+/* Define to 1 if you have the ANSI C header files. */
+#mesondefine STDC_HEADERS
+
+/* Version number of package */
+#mesondefine VERSION
