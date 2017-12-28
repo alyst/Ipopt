@@ -128,19 +128,19 @@ endif
 
 libdl = cc.find_library('dl')
 
-coinblas_sp = subproject('BLAS')
+coinblas_sp = subproject('coinblas')
 BLAS_dep = coinblas_sp.get_variable('coinblas_dep')
 if BLAS_dep.found()
   cdata.set('COIN_HAS_BLAS', 1)
 endif
 
-coinlapack_sp = subproject('LAPACK')
+coinlapack_sp = subproject('coinlapack')
 LAPACK_dep = coinlapack_sp.get_variable('coinlapack_dep')
 if LAPACK_dep.found()
   cdata.set('COIN_HAS_LAPACK', 1)
 endif
 
-coinmumps_sp = subproject('MUMPS')
+coinmumps_sp = subproject('coinmumps')
 MUMPS_dep = coinmumps_sp.get_variable('coinmumps_dep')
 if MUMPS_dep.found()
   cdata.set('COIN_HAS_MUMPS', 1)
@@ -160,7 +160,7 @@ endif
 #  MUMPS_dep = disabler()
 #endif
 
-coinasl_sp = subproject('ASL')
+coinasl_sp = subproject('coinasl')
 ASL_dep = coinasl_sp.get_variable('coinasl_dep')
 if ASL_dep.found()
   cdata.set('COIN_HAS_ASL', 1)

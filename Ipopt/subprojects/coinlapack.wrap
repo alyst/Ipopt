@@ -1,0 +1,10 @@
+[wrap-file]
+directory=lapack-3.8.0
+
+source_url=http://www.netlib.org/lapack/lapack-3.8.0.tar.gz
+source_filename=lapack-3.8.0.tar.gz
+source_hash=deb22cc4a6120bff72621155a9917f485f96ef8319ac074a7afbc68aab88bcf6
+
+patch_url = file:///home/astukalov/projects/Ipopt/Ipopt/subprojects/coinlapack-3.8.0-1-wrap.zip
+patch_filename = coinlapack-3.8.0-1-wrap.zip
+patch_hash = b3efa4c6545f578871c3042860c6489acf9848035fe24187618af7855ee5b071

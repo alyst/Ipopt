@@ -1,0 +1,10 @@
+[wrap-file]
+directory=BLAS-3.8.0
+
+source_url=http://www.netlib.org/blas/blas-3.8.0.tgz
+source_filename=blas-3.8.0.tar.gz
+source_hash=55df2a24966c2928d3d2ab4a20e9856d9914b856cf4742ebd4f7a4507c8e44e8
+
+patch_url = file:///home/astukalov/projects/Ipopt/Ipopt/subprojects/coinblas-3.8.0-1-wrap.zip
+patch_filename = coinblas-3.8.0-1-wrap.zip
+patch_hash = 1c40e13f1102f307e14b99b16b2299c4764fa42a1cdc94a0e2e103f6e792ea71

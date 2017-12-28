@@ -1,0 +1,10 @@
+[wrap-file]
+directory=mp-3.1.0
+
+source_url=https://github.com/ampl/mp/archive/3.1.0.tar.gz
+source_filename=mp-3.1.0.tar.gz
+source_hash=587c1a88f4c8f57bef95b58a8586956145417c8039f59b1758365ccc5a309ae9
+
+patch_url = file:///home/astukalov/projects/Ipopt/Ipopt/subprojects/coinasl-3.1.0-wrap.zip
+patch_filename = coinasl-3.1.0-wrap.zip
+patch_hash = 4b9ba337d56852928186bf77424c737b8f54b14327dea2888c59b7ff2c8e10f6
