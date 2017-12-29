@@ -255,8 +255,10 @@ ipopt_deps = [libdl, BLAS_dep, ASL_dep]
 subdir('src/Common')
 
 if build_LinearSolverLoader
+  message('Building LinearSolverLoader: yes')
   subdir('src/contrib/LinearSolverLoader')
 else
+  message('Building LinearSolverLoader: no')
   LinearSolverLoader_dep = disabler()
 endif
 
