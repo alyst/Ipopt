@@ -250,7 +250,7 @@ cdata.set('COIN_IPOPT_VERBOSITY', get_option('with-ipopt-verbosity'))
 
 # vars to accumulate local static libraries and their dependencies of subdirs
 ipopt_libs = []
-ipopt_deps = [libdl, BLAS_dep, ASL_dep]
+ipopt_deps = [libdl, BLAS_dep, LAPACK_dep, ASL_dep]
 
 subdir('src/Common')
 
