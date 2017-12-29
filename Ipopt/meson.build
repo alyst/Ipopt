@@ -271,8 +271,8 @@ ipopt_objs = []
 foreach l : ipopt_libs
   ipopt_objs += l.extract_all_objects()
 endforeach
-libipopt = static_library('ipopt', objects: ipopt_objs, dependencies: ipopt_deps,
-                          install: true)
+libipopt = library('ipopt', objects: ipopt_objs, dependencies: ipopt_deps,
+                   install: true, version: '1.10.9')
 
 if ASL_dep.found()
   subdir('src/Apps/AmplSolver')
