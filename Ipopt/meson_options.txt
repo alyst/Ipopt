@@ -1,3 +1,7 @@
+option('with-blas', type: 'string', value: '',
+       description: 'specify BLAS library')
+option('with-lapack', type: 'string', value: '',
+       description: 'specify LAPACK library')
 option('enable-inexact-solver', type: 'boolean', value: false,
        description: 'enable inexact linear solver version EXPERIMENTAL!')
 option('enable-linear-solver-loader', type: 'boolean', value: true,

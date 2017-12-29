@@ -128,14 +128,54 @@ endif
 
 libdl = cc.find_library('dl')
 
-coinblas_sp = subproject('coinblas')
-BLAS_dep = coinblas_sp.get_variable('coinblas_dep')
+BLAS_dep = disabler()
+custom_blas = false
+if get_option('with-blas') != ''
+  blas_args = get_option('with-blas').split(' ')
+  BLAS_dep = declare_dependency(compile_args: blas_args, link_args: blas_args)
+  if cc.has_function('daxpy', dependencies: BLAS_dep)
+    custom_blas = true
+  else
+    warning('with-blas option doesn\'t provide BLAS')
+    BLAS_dep = disabler()
+  endif
+endif
+
+if not BLAS_dep.found()
+  coinblas_sp = subproject('coinblas')
+  BLAS_dep = coinblas_sp.get_variable('coinblas_dep')
+endif
+
 if BLAS_dep.found()
   cdata.set('COIN_HAS_BLAS', 1)
 endif
 
-coinlapack_sp = subproject('coinlapack')
-LAPACK_dep = coinlapack_sp.get_variable('coinlapack_dep')
+LAPACK_dep = disabler()
+custom_lapack = false
+if get_option('with-lapack') != ''
+  lapack_args = get_option('with-lapack').split(' ')
+  LAPACK_dep = declare_dependency(compile_args: lapack_args, link_args: lapck_args)
+  if cc.has_function('dsyev', dependencies: LAPACK_dep)
+    custom_lapack = true
+  else
+    warning('with-lapack option doesn\'t provide LAPCK')
+    LAPACK_dep = disabler()
+  endif
+endif
+
+if not LAPACK_dep.found() and custom_blas
+  # check whether BLAS_dep provides LAPACK
+  if cc.has_function('dsyev', dependencies: BLAS_dep)
+    LAPACK_dep = BLAS_dep
+    custom_lapack = true
+  endif
+endif
+
+if not LAPACK_dep.found()
+  coinlapack_sp = subproject('coinlapack')
+  LAPACK_dep = coinlapack_sp.get_variable('coinlapack_dep')
+endif
+
 if LAPACK_dep.found()
   cdata.set('COIN_HAS_LAPACK', 1)
 endif
