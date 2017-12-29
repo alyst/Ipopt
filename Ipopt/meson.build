@@ -128,6 +128,8 @@ endif
 
 libdl = cc.find_library('dl')
 
+MKL_dep = disabler()
+
 BLAS_dep = disabler()
 custom_blas = false
 if get_option('with-blas') != ''
@@ -135,6 +137,10 @@ if get_option('with-blas') != ''
   BLAS_dep = declare_dependency(compile_args: blas_args, link_args: blas_args)
   if cc.has_function('daxpy', dependencies: BLAS_dep)
     custom_blas = true
+    # check whether BLAS is from MKL
+    if cc.has_function('mkl_get_version_string', dependencies: BLAS_dep)
+      MKL_dep = BLAS_dep
+    endif
   else
     warning('with-blas option doesn\'t provide BLAS')
     BLAS_dep = disabler()
@@ -204,8 +210,15 @@ HSL_dep = disabler() # FIXME
 Pardiso_dep = disabler() # FIXME
 
 pardiso_mkl = false
-
-# check token ('HAVE_PARDISO_MKL',)
+if not Pardiso_dep.found() and MKL_dep.found()
+  # check whether MKL provides Pardiso
+  if cc.has_function('PARDISO', dependencies: MKL_dep)
+    message('Using Pardiso provided by MKL')
+    Pardiso_dep = MKL_dep
+    pardiso_mkl = true
+    cdata.set('HAVE_PARDISO_MKL', 1)
+  endif
+endif
 # check token ('HAVE_PARDISO_OLDINTERFACE',)
 # check token ('HAVE_PARDISO_PARALLEL',)
 
