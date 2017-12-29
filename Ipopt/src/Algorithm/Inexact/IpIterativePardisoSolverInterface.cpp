@@ -67,7 +67,9 @@ extern "C"
   }
 
   // The following global function pointer is defined in the Pardiso library
-  void SetIpoptCallbackFunction(int (*IpoptFunction)(int n, double* x,  double* r, int k, double b));
+  void SetIpoptCallbackFunction(int (*IpoptFunction)(int n, double* x,  double* r, int k, double b)) {
+    return; // FIXME
+  }
 }
 
 /** Prototypes for Pardiso's subroutines */
