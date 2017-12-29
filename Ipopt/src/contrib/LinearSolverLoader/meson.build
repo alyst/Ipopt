@@ -12,7 +12,6 @@ loader_deps = []
 if not pardiso_mkl
   headers += ['PardisoLoader.h']
   sources += ['PardisoLoader.c']
-  loader_deps += [Pardiso_dep]
 endif
 
 install_headers(headers, subdir: 'coin')
