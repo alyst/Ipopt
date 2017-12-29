@@ -140,13 +140,6 @@ if LAPACK_dep.found()
   cdata.set('COIN_HAS_LAPACK', 1)
 endif
 
-coinmumps_sp = subproject('coinmumps')
-MUMPS_dep = coinmumps_sp.get_variable('coinmumps_dep')
-if MUMPS_dep.found()
-  cdata.set('COIN_HAS_MUMPS', 1)
-#  cdata.set('COIN_USE_MUMPS_MPI_H', 1)
-endif
-
 #dmumps_dep = cc.find_library('dmumps', required: false) # FIXME (with-mumps)
 #if cc.has_header('mumps_mpi.h')
 #  cdata.set('COIN_USE_MUMPS_MPI_H', 1)
@@ -183,6 +176,20 @@ endif
 build_LinearSolverLoader = has_fortran and get_option('enable-linear-solver-loader')
 if build_LinearSolverLoader
   cdata.set('HAVE_LINEARSOLVERLOADER', 1)
+endif
+
+MUMPS_dep = disabler()
+if not (Pardiso_dep.found() or MA28_dep.found() or HSL_dep.found() or build_LinearSolverLoader) or get_option('with-mumps') == 'bundled'
+  coinmumps_sp = subproject('coinmumps')
+  MUMPS_dep = coinmumps_sp.get_variable('coinmumps_dep')
+  if MUMPS_dep.found()
+    cdata.set('COIN_HAS_MUMPS', 1)
+    #  cdata.set('COIN_USE_MUMPS_MPI_H', 1)
+  endif
+endif
+
+if not (MUMPS_dep.found() or Pardiso_dep.found() or MA28_dep.found() or HSL_dep.found() or build_LinearSolverLoader)
+  warning('No linear solvers will be built')
 endif
 
 cdata.set('COIN_IPOPT_CHECKLEVEL', get_option('with-ipopt-checklevel'))
