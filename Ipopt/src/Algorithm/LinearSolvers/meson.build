@@ -18,13 +18,12 @@ sources += [
 
   'IpMa28TDependencyDetector.cpp',
   'IpMa28Partition.F',
-  'IpPardisoSolverInterface.cpp',
 ]
 
 solver_deps = []
 
-if Pardiso_dep.found()
-  sources += []
+if Pardiso_dep.found() or build_LinearSolverLoader
+  sources += ['IpPardisoSolverInterface.cpp']
   solver_deps += [Pardiso_dep]
 endif
 if MA28_dep.found()
