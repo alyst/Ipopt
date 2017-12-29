@@ -1,17 +1,17 @@
 headers = [
   'HSLLoader.h',
-  'PardisoLoader.h',
 ]
 
 sources = [
   'LibraryHandler.c',
   'HSLLoader.c',
-  'PardisoLoader.c'
 ]
 
 loader_deps = []
 
-if Pardiso_dep.found()
+if not pardiso_mkl
+  headers += ['PardisoLoader.h']
+  sources += ['PardisoLoader.c']
   loader_deps += [Pardiso_dep]
 endif
 

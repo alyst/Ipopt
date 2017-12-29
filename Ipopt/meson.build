@@ -170,17 +170,20 @@ MA28_dep = disabler() # FIXME
 HSL_dep = disabler() # FIXME
 Pardiso_dep = disabler() # FIXME
 
-build_LinearSolverLoader = has_fortran and get_option('enable-linear-solver-loader')
-if build_LinearSolverLoader
-  cdata.set('HAVE_LINEARSOLVERLOADER', 1)
-  if Pardiso_dep.found()
-    cdata.set('HAVE_PARDISO', 1)
-  endif
-endif
+pardiso_mkl = false
 
 # check token ('HAVE_PARDISO_MKL',)
 # check token ('HAVE_PARDISO_OLDINTERFACE',)
 # check token ('HAVE_PARDISO_PARALLEL',)
+
+if Pardiso_dep.found()
+  cdata.set('HAVE_PARDISO', 1)
+endif
+
+build_LinearSolverLoader = has_fortran and get_option('enable-linear-solver-loader')
+if build_LinearSolverLoader
+  cdata.set('HAVE_LINEARSOLVERLOADER', 1)
+endif
 
 cdata.set('COIN_IPOPT_CHECKLEVEL', get_option('with-ipopt-checklevel'))
 cdata.set('COIN_IPOPT_VERBOSITY', get_option('with-ipopt-verbosity'))
